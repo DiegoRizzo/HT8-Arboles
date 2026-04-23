@@ -47,16 +47,18 @@ class SpTree(BSTree):
 
     def splay(self, val):
         if self.root is None:
-            return
+            return (None, 0)
 
         l = r = self.header
         t = self.root
         self.header.left = self.header.right = None
+        steps = 0
 
         while True:
             if val < t.val:
                 if t.left is None:
                     break
+                steps += 1
                 if val < t.left.val:
                     y = t.left
                     t.left = y.right
@@ -70,6 +72,7 @@ class SpTree(BSTree):
             elif val > t.val:
                 if t.right is None:
                     break
+                steps += 1
                 if val > t.right.val:
                     y = t.right
                     t.right = y.left
@@ -88,3 +91,4 @@ class SpTree(BSTree):
         t.left = self.header.right
         t.right = self.header.left
         self.root = t
+        return (t, steps)

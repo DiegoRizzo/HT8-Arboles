@@ -26,18 +26,18 @@ class BSTree:
         return root
 
     # Método de búsqueda
-    def search(root, key):
+    def search(root, key, steps=0):
 
-        # Si el árbol está vacío o el valor de la raíz es igual al valor a buscar, devuelve la raíz
+        # Si el árbol está vacío o el valor de la raíz es igual al valor a buscar, devuelve la raíz con el conteo de pasos
         if root is None or root.val == key:
-            return root
+            return (root, steps)
         
         # Si el valor a buscar es mayor que el valor de la raíz, se repite el proceso de búsqueda para el subárbol derecho
         if root.val < key:
-            return BSTree.search(root.right, key)
+            return BSTree.search(root.right, key, steps + 1)
         
         # Si el valor a buscar es menor que el valor de la raíz, se repite el proceso de búsqueda para el subárbol izquierdo
-        return BSTree.search(root.left, key)
+        return BSTree.search(root.left, key, steps + 1)
     
     # Método para encontrar el sucesor de un nodo
     def get_successor(current):
