@@ -59,7 +59,7 @@ class RBTree:
     def arreglar(self, k):
         while k.parent.color == 1: # Mientras mi padre sea Rojo
 
-            if k.parent == k.parent.parent.left:
+            if k.parent == k.parent.parent.left: # Si mi padre es hijo izquerdo
                 u = k.parent.parent.right # Mi tío
 
                 if u.color == 1: # CASO 1: Mi tío es Rojo
@@ -71,12 +71,12 @@ class RBTree:
                 else:
                     if k == k.parent.right: # CASO 2: Triángulo
                         k = k.parent
-                        self.left_rotate(k)
+                        self.left_rotate(k) # Rotación a la izquierda del padre
                     
                     # CASO 3: Línea
                     k.parent.color = 0
                     k.parent.parent.color = 1
-                    self.right_rotate(k.parent.parent)
+                    self.right_rotate(k.parent.parent) # Rotación a la derecha del abuelo
             
             else: # Simetría: El padre es hijo derecho
                 u = k.parent.parent.left # Mi tío
@@ -90,14 +90,14 @@ class RBTree:
                 else:
                     if k == k.parent.left: # CASO 2: Triángulo
                         k = k.parent
-                        self.right_rotate(k)
+                        self.right_rotate(k) # Rotación a la derecha del padre
                     
                     # CASO 3: Línea
                     k.parent.color = 0
                     k.parent.parent.color = 1
-                    self.left_rotate(k.parent.parent)
+                    self.left_rotate(k.parent.parent) # Rotación a la izquierda del abuelo
             
-            if k == self.root:
+            if k == self.root: # Si llegamos a la raíz, no hay nada más que revisar
                 break
         self.root.color = 0 # Raíz siempre Negra
     

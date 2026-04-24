@@ -11,7 +11,7 @@ def run():
     spt = SpTree.SpTree()
 
     # Generar 1000 números enteros aleatorios y insertarlos en el BST
-    for i in range(1000):
+    for _ in range(1000):
         key = random.randint(1, 10000)
         bst.root = BSTree.BSTree.insert(bst.root, key)
     
