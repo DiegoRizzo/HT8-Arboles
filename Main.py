@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def run():
     # Crear un árbol binario de búsqueda y un Splay Tree
     bst = BSTree.BSTree()
-    spt = SpTree()
+    spt = SpTree.SpTree()
 
     # Generar 1000 números enteros aleatorios y insertarlos en el BST
     for i in range(1000):
@@ -35,3 +35,5 @@ def run():
     # Renderizar el gráfico y guardarlo como imagen PNG
     dot.render('bst_graph', format='png', view=True)
     print("El gráfico del árbol binario de búsqueda se ha generado y guardado como 'bst_graph.png'")
+
+run()
