@@ -45,6 +45,12 @@ class SpTree(BSTree):
             self.splay(val)
             self.root.right = right_subtree
 
+    def search(self, val):
+        node, steps = self.splay(val)
+        if node is not None and node.val == val:
+            return node, steps + 1
+        return None, steps + 1
+
     def splay(self, val):
         if self.root is None:
             return (None, 0)

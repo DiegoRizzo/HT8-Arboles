@@ -1,4 +1,4 @@
-import RBNode
+from RBNode import RBNode
 
 class RBTree:
     def __init__(self):
@@ -149,7 +149,6 @@ class RBTree:
             comparaciones += 1
 
             if key == actual.key:
-                print(f"Nodo {key} encontrado despues de {comparaciones} comparaciones.")
                 return actual, comparaciones
 
             if key < actual.key:
@@ -158,7 +157,6 @@ class RBTree:
             else:
                 actual = actual.right
         
-        print(f"Nodo {key} NO encontrado despues de {comparaciones} comparaciones.")
         return None, comparaciones
     
     def niveles(self):

@@ -1,18 +1,17 @@
-import random
 import BSTree
 import SpTree
 import graphviz
 import numpy as np
 import matplotlib.pyplot as plt
+import ProcessData
 
 def run():
     # Crear un árbol binario de búsqueda y un Splay Tree
     bst = BSTree.BSTree()
     spt = SpTree.SpTree()
 
-    # Generar 1000 números enteros aleatorios y insertarlos en el BST
-    for _ in range(1000):
-        key = random.randint(1, 10000)
+    # Insertar los mismos 1000 procesos que se usan en el experimento
+    for key in ProcessData.get_processes():
         bst.root = BSTree.BSTree.insert(bst.root, key)
     
     # Usar Graphviz para genrar el gráfico del árbol
